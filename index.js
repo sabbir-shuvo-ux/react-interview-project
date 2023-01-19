@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
+const cors = require("cors")
 
 const app = express();
 mongoose.set('strictQuery', false);
@@ -14,6 +15,7 @@ const PORT = process.env.PORT;
 
 
 //MIDDLEWARE
+app.use(cors())
 app.use(express.json());
 app.use((req, res, next) => {
       console.log(req.path, "||", req.method);
